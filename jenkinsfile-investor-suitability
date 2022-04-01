@@ -1,3 +1,6 @@
+@Library('test_library')
+import jenkins.investor.SuitabilityCheck
+
 pipeline {
     agent any
 
@@ -5,7 +8,7 @@ pipeline {
         stage('JenkinsFileTest') {
             steps{
                dev test = load "src/main/groovy/jenkins.investor.SuitabilityCheck.groovy"
-               print "Result " + test.testMethod()
+               print "Result " + new SuitabilityCheck().testMethod()
             }
         }
     }
