@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('JenkinsFileTest') {
+            steps{
+               dev test = load "src/main/groovy/jenkins.investor.SuitabilityCheck.groovy"
+               print "Result " + test.testMethod()
+            }
+        }
+    }
+}
